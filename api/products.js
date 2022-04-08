@@ -8,13 +8,13 @@ function sleep(fn) {
 }
 
 const dataService = {
-  getProductsList() {
-    let products = [
+  prepareProductsData() {
+    return [
       {
         id: 'potato',
         title: 'Картошка',
         price: 49.99,
-        image: '/products/potato.jpg',
+        image: '/products/1.jpg',
       },
       {
         id: 'carrot',
@@ -29,13 +29,10 @@ const dataService = {
         image: '/products/cabbage.jpg',
       }
     ];
-    return products;
   },
 };
 
-const productsApi = {
-  getProductsList() {
-    return sleep(dataService.getProductsList);
-  },
-};
-export default productsApi;
+function getProductsList() {
+  return sleep(dataService.prepareProductsData);
+}
+export { getProductsList }
